@@ -1,4 +1,4 @@
-# giteapy.AdminApi
+# dcs_api_client.AdminApi
 
 All URIs are relative to *http://localhost/api/v1*
 
@@ -29,47 +29,47 @@ Adopt unadopted files as a repository
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repo
 repo = 'repo_example' # str | name of the repo
 
@@ -111,49 +111,49 @@ Create an organization
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 username = 'username_example' # str | username of the user that will own the created organization
-organization = giteapy.CreateOrgOption() # CreateOrgOption | 
+organization = dcs_api_client.CreateOrgOption() # CreateOrgOption | 
 
 try:
     # Create an organization
@@ -194,49 +194,49 @@ Add a public key on behalf of a user
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 username = 'username_example' # str | username of the user
-key = giteapy.CreateKeyOption() # CreateKeyOption |  (optional)
+key = dcs_api_client.CreateKeyOption() # CreateKeyOption |  (optional)
 
 try:
     # Add a public key on behalf of a user
@@ -277,49 +277,49 @@ Create a repository on behalf of a user
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 username = 'username_example' # str | username of the user. This user will own the created repository
-repository = giteapy.CreateRepoOption() # CreateRepoOption | 
+repository = dcs_api_client.CreateRepoOption() # CreateRepoOption | 
 
 try:
     # Create a repository on behalf of a user
@@ -360,48 +360,48 @@ Create a user
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
-body = giteapy.CreateUserOption() # CreateUserOption |  (optional)
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
+body = dcs_api_client.CreateUserOption() # CreateUserOption |  (optional)
 
 try:
     # Create a user
@@ -441,47 +441,47 @@ List cron tasks
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
@@ -524,47 +524,47 @@ Run cron task
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 task = 'task_example' # str | task to run
 
 try:
@@ -604,47 +604,47 @@ Delete unadopted files
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repo
 repo = 'repo_example' # str | name of the repo
 
@@ -686,47 +686,47 @@ Delete a user
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 username = 'username_example' # str | username of user to delete
 
 try:
@@ -766,47 +766,47 @@ Delete a user's public key
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 username = 'username_example' # str | username of user
 id = 789 # int | id of the key to delete
 
@@ -848,49 +848,49 @@ Edit an existing user
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 username = 'username_example' # str | username of user to edit
-body = giteapy.EditUserOption() # EditUserOption |  (optional)
+body = dcs_api_client.EditUserOption() # EditUserOption |  (optional)
 
 try:
     # Edit an existing user
@@ -923,7 +923,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_get_all_orgs**
-> list[Organization] admin_get_all_orgs(page=page, limit=limit)
+> list[Organization] admin_get_all_orgs(lang=lang, page=page, limit=limit)
 
 List all organizations
 
@@ -931,53 +931,54 @@ List all organizations
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
+lang = 'lang_example' # str | If the org has one or more repos with the given language(s), the org will be in the results. Multiple lang's are ORed. (optional)
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
 try:
     # List all organizations
-    api_response = api_instance.admin_get_all_orgs(page=page, limit=limit)
+    api_response = api_instance.admin_get_all_orgs(lang=lang, page=page, limit=limit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AdminApi->admin_get_all_orgs: %s\n" % e)
@@ -987,6 +988,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **lang** | **str**| If the org has one or more repos with the given language(s), the org will be in the results. Multiple lang&#39;s are ORed. | [optional] 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -1006,7 +1008,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **admin_get_all_users**
-> list[User] admin_get_all_users(page=page, limit=limit)
+> list[User] admin_get_all_users(lang=lang, page=page, limit=limit)
 
 List all users
 
@@ -1014,53 +1016,54 @@ List all users
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
+lang = 'lang_example' # str | If the user has one or more repos with the given language(s), the org will be in the results. Multiple lang's are ORed. (optional)
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
 try:
     # List all users
-    api_response = api_instance.admin_get_all_users(page=page, limit=limit)
+    api_response = api_instance.admin_get_all_users(lang=lang, page=page, limit=limit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AdminApi->admin_get_all_users: %s\n" % e)
@@ -1070,6 +1073,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **lang** | **str**| If the user has one or more repos with the given language(s), the org will be in the results. Multiple lang&#39;s are ORed. | [optional] 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
@@ -1097,47 +1101,47 @@ List unadopted repositories
 ```python
 from __future__ import print_function
 import time
-import giteapy
-from giteapy.rest import ApiException
+import dcs_api_client
+from dcs_api_client.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: AccessToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['access_token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['access_token'] = 'Bearer'
 # Configure API key authorization: AuthorizationHeaderToken
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 # Configure HTTP basic authorization: BasicAuth
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: SudoHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['Sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Sudo'] = 'Bearer'
 # Configure API key authorization: SudoParam
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['sudo'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sudo'] = 'Bearer'
 # Configure API key authorization: TOTPHeader
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
 # Configure API key authorization: Token
-configuration = giteapy.Configuration()
+configuration = dcs_api_client.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = giteapy.AdminApi(giteapy.ApiClient(configuration))
+api_instance = dcs_api_client.AdminApi(dcs_api_client.ApiClient(configuration))
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 pattern = 'pattern_example' # str | pattern of repositories to search for (optional)

@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **location** | **str** |  | [optional] 
 **repo_admin_change_team_access** | **bool** |  | [optional] 
+**repo_languages** | **list[str]** | DCS Customizations ***/ | [optional] 
+**repo_subjects** | **list[str]** |  | [optional] 
 **username** | **str** |  | [optional] 
 **visibility** | **str** |  | [optional] 
 **website** | **str** |  | [optional] 
