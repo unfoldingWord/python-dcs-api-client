@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "dcs-api-client"
-VERSION = "1.15.9-dcs"
+VERSION = "1.15.9"
 # To install the library, run the following
 #
 # python setup.py install
