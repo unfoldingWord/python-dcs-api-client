@@ -362,7 +362,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notify_read_list**
-> notify_read_list(last_read_at=last_read_at, all=all, status_types=status_types, to_status=to_status)
+> list[NotificationThread] notify_read_list(last_read_at=last_read_at, all=all, status_types=status_types, to_status=to_status)
 
 Mark notification threads as read, pinned or unread
 
@@ -418,7 +418,8 @@ to_status = 'to_status_example' # str | Status to mark notifications as, Default
 
 try:
     # Mark notification threads as read, pinned or unread
-    api_instance.notify_read_list(last_read_at=last_read_at, all=all, status_types=status_types, to_status=to_status)
+    api_response = api_instance.notify_read_list(last_read_at=last_read_at, all=all, status_types=status_types, to_status=to_status)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling NotificationApi->notify_read_list: %s\n" % e)
 ```
@@ -434,7 +435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**list[NotificationThread]**](NotificationThread.md)
 
 ### Authorization
 
@@ -448,7 +449,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notify_read_repo_list**
-> notify_read_repo_list(owner, repo, all=all, status_types=status_types, to_status=to_status, last_read_at=last_read_at)
+> list[NotificationThread] notify_read_repo_list(owner, repo, all=all, status_types=status_types, to_status=to_status, last_read_at=last_read_at)
 
 Mark notification threads as read, pinned or unread on a specific repo
 
@@ -506,7 +507,8 @@ last_read_at = '2013-10-20T19:20:30+01:00' # datetime | Describes the last point
 
 try:
     # Mark notification threads as read, pinned or unread on a specific repo
-    api_instance.notify_read_repo_list(owner, repo, all=all, status_types=status_types, to_status=to_status, last_read_at=last_read_at)
+    api_response = api_instance.notify_read_repo_list(owner, repo, all=all, status_types=status_types, to_status=to_status, last_read_at=last_read_at)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling NotificationApi->notify_read_repo_list: %s\n" % e)
 ```
@@ -524,7 +526,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**list[NotificationThread]**](NotificationThread.md)
 
 ### Authorization
 
@@ -538,7 +540,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notify_read_thread**
-> notify_read_thread(id, to_status=to_status)
+> NotificationThread notify_read_thread(id, to_status=to_status)
 
 Mark notification thread as read by ID
 
@@ -592,7 +594,8 @@ to_status = 'read' # str | Status to mark notifications as (optional) (default t
 
 try:
     # Mark notification thread as read by ID
-    api_instance.notify_read_thread(id, to_status=to_status)
+    api_response = api_instance.notify_read_thread(id, to_status=to_status)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling NotificationApi->notify_read_thread: %s\n" % e)
 ```
@@ -606,7 +609,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**NotificationThread**](NotificationThread.md)
 
 ### Authorization
 
