@@ -35,7 +35,7 @@ setup(
     version=VERSION,
     description="DCS (Gitea) API.",
     author_email="",
-    url="https://github.com/unfoldingWord-dev/python-dcs-api-client",
+    url="https://github.com/unfoldingWord/python-dcs-api-client",
     keywords=["Swagger", "DCS (Gitea) API."],
     install_requires=REQUIRES,
     packages=find_packages(),
