@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **branch_or_tag_name** | **str** |  | [optional] 
+**commit_sha** | **str** |  | [optional] 
 **contents_url** | **str** |  | [optional] 
 **git_trees_url** | **str** |  | [optional] 
 **release_url** | **str** |  | [optional] 

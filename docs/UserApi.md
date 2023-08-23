@@ -9,7 +9,8 @@ Method | HTTP request | Description
 [**get_verification_token**](UserApi.md#get_verification_token) | **GET** /user/gpg_key_token | Get a Token to verify
 [**update_user_settings**](UserApi.md#update_user_settings) | **PATCH** /user/settings | Update user settings
 [**user_add_email**](UserApi.md#user_add_email) | **POST** /user/emails | Add email addresses
-[**user_check_following**](UserApi.md#user_check_following) | **GET** /users/{follower}/following/{followee} | Check if one user is following another user
+[**user_check_following**](UserApi.md#user_check_following) | **GET** /users/{username}/following/{target} | Check if one user is following another user
+[**user_create_hook**](UserApi.md#user_create_hook) | **POST** /user/hooks | Create a hook
 [**user_create_o_auth2_application**](UserApi.md#user_create_o_auth2_application) | **POST** /user/applications/oauth2 | creates a new OAuth2 application
 [**user_create_token**](UserApi.md#user_create_token) | **POST** /users/{username}/tokens | Create an access token
 [**user_current_check_following**](UserApi.md#user_current_check_following) | **GET** /user/following/{username} | Check whether a user is followed by the authenticated user
@@ -34,18 +35,23 @@ Method | HTTP request | Description
 [**user_current_tracked_times**](UserApi.md#user_current_tracked_times) | **GET** /user/times | List the current user&#39;s tracked times
 [**user_delete_access_token**](UserApi.md#user_delete_access_token) | **DELETE** /users/{username}/tokens/{token} | delete an access token
 [**user_delete_email**](UserApi.md#user_delete_email) | **DELETE** /user/emails | Delete email addresses
+[**user_delete_hook**](UserApi.md#user_delete_hook) | **DELETE** /user/hooks/{id} | Delete a hook
 [**user_delete_o_auth2_application**](UserApi.md#user_delete_o_auth2_application) | **DELETE** /user/applications/oauth2/{id} | delete an OAuth2 Application
+[**user_edit_hook**](UserApi.md#user_edit_hook) | **PATCH** /user/hooks/{id} | Update a hook
 [**user_get**](UserApi.md#user_get) | **GET** /users/{username} | Get a user
 [**user_get_current**](UserApi.md#user_get_current) | **GET** /user | Get the authenticated user
 [**user_get_heatmap_data**](UserApi.md#user_get_heatmap_data) | **GET** /users/{username}/heatmap | Get a user&#39;s heatmap
+[**user_get_hook**](UserApi.md#user_get_hook) | **GET** /user/hooks/{id} | Get a hook
 [**user_get_o_auth2_application**](UserApi.md#user_get_o_auth2_application) | **GET** /user/applications/oauth2/{id} | get an OAuth2 Application
 [**user_get_oauth2_application**](UserApi.md#user_get_oauth2_application) | **GET** /user/applications/oauth2 | List the authenticated user&#39;s oauth2 applications
 [**user_get_stop_watches**](UserApi.md#user_get_stop_watches) | **GET** /user/stopwatches | Get list of all existing stopwatches
 [**user_get_tokens**](UserApi.md#user_get_tokens) | **GET** /users/{username}/tokens | List the authenticated user&#39;s access tokens
+[**user_list_activity_feeds**](UserApi.md#user_list_activity_feeds) | **GET** /users/{username}/activities/feeds | List a user&#39;s activity feeds
 [**user_list_emails**](UserApi.md#user_list_emails) | **GET** /user/emails | List the authenticated user&#39;s email addresses
 [**user_list_followers**](UserApi.md#user_list_followers) | **GET** /users/{username}/followers | List the given user&#39;s followers
 [**user_list_following**](UserApi.md#user_list_following) | **GET** /users/{username}/following | List the users that the given user is following
 [**user_list_gpg_keys**](UserApi.md#user_list_gpg_keys) | **GET** /users/{username}/gpg_keys | List the given user&#39;s GPG keys
+[**user_list_hooks**](UserApi.md#user_list_hooks) | **GET** /user/hooks | List the authenticated user&#39;s webhooks
 [**user_list_keys**](UserApi.md#user_list_keys) | **GET** /users/{username}/keys | List the given user&#39;s public keys
 [**user_list_repos**](UserApi.md#user_list_repos) | **GET** /users/{username}/repos | List the repos owned by the given user
 [**user_list_starred**](UserApi.md#user_list_starred) | **GET** /users/{username}/starred | The repos that the given user has starred
@@ -454,7 +460,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_check_following**
-> user_check_following(follower, followee)
+> user_check_following(username, target)
 
 Check if one user is following another user
 
@@ -503,12 +509,12 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
-follower = 'follower_example' # str | username of following user
-followee = 'followee_example' # str | username of followed user
+username = 'username_example' # str | username of following user
+target = 'target_example' # str | username of followed user
 
 try:
     # Check if one user is following another user
-    api_instance.user_check_following(follower, followee)
+    api_instance.user_check_following(username, target)
 except ApiException as e:
     print("Exception when calling UserApi->user_check_following: %s\n" % e)
 ```
@@ -517,8 +523,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **follower** | **str**| username of following user | 
- **followee** | **str**| username of followed user | 
+ **username** | **str**| username of following user | 
+ **target** | **str**| username of followed user | 
 
 ### Return type
 
@@ -532,6 +538,87 @@ void (empty response body)
 
  - **Content-Type**: application/json, text/plain
  - **Accept**: application/json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **user_create_hook**
+> Hook user_create_hook(body)
+
+Create a hook
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dcs_api_client
+from dcs_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = dcs_api_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = dcs_api_client.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = dcs_api_client.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
+body = dcs_api_client.CreateHookOption() # CreateHookOption | 
+
+try:
+    # Create a hook
+    api_response = api_instance.user_create_hook(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->user_create_hook: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateHookOption**](CreateHookOption.md)|  | 
+
+### Return type
+
+[**Hook**](Hook.md)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -617,7 +704,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_create_token**
-> AccessToken user_create_token(username, user_create_token=user_create_token)
+> AccessToken user_create_token(username, body=body)
 
 Create an access token
 
@@ -667,11 +754,11 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
 username = 'username_example' # str | username of user
-user_create_token = dcs_api_client.CreateAccessTokenOption() # CreateAccessTokenOption |  (optional)
+body = dcs_api_client.CreateAccessTokenOption() # CreateAccessTokenOption |  (optional)
 
 try:
     # Create an access token
-    api_response = api_instance.user_create_token(username, user_create_token=user_create_token)
+    api_response = api_instance.user_create_token(username, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->user_create_token: %s\n" % e)
@@ -682,7 +769,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| username of user | 
- **user_create_token** | [**CreateAccessTokenOption**](CreateAccessTokenOption.md)|  | [optional] 
+ **body** | [**CreateAccessTokenOption**](CreateAccessTokenOption.md)|  | [optional] 
 
 ### Return type
 
@@ -2253,7 +2340,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_current_tracked_times**
-> list[TrackedTime] user_current_tracked_times(since=since, before=before)
+> list[TrackedTime] user_current_tracked_times(page=page, limit=limit, since=since, before=before)
 
 List the current user's tracked times
 
@@ -2302,12 +2389,14 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
+page = 56 # int | page number of results to return (1-based) (optional)
+limit = 56 # int | page size of results (optional)
 since = '2013-10-20T19:20:30+01:00' # datetime | Only show times updated after the given time. This is a timestamp in RFC 3339 format (optional)
 before = '2013-10-20T19:20:30+01:00' # datetime | Only show times updated before the given time. This is a timestamp in RFC 3339 format (optional)
 
 try:
     # List the current user's tracked times
-    api_response = api_instance.user_current_tracked_times(since=since, before=before)
+    api_response = api_instance.user_current_tracked_times(page=page, limit=limit, since=since, before=before)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->user_current_tracked_times: %s\n" % e)
@@ -2317,6 +2406,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int**| page number of results to return (1-based) | [optional] 
+ **limit** | **int**| page size of results | [optional] 
  **since** | **datetime**| Only show times updated after the given time. This is a timestamp in RFC 3339 format | [optional] 
  **before** | **datetime**| Only show times updated before the given time. This is a timestamp in RFC 3339 format | [optional] 
 
@@ -2497,6 +2588,86 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **user_delete_hook**
+> user_delete_hook(id)
+
+Delete a hook
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dcs_api_client
+from dcs_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = dcs_api_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = dcs_api_client.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = dcs_api_client.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
+id = 789 # int | id of the hook to delete
+
+try:
+    # Delete a hook
+    api_instance.user_delete_hook(id)
+except ApiException as e:
+    print("Exception when calling UserApi->user_delete_hook: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| id of the hook to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **user_delete_o_auth2_application**
 > user_delete_o_auth2_application(id)
 
@@ -2573,6 +2744,89 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **user_edit_hook**
+> Hook user_edit_hook(id, body=body)
+
+Update a hook
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dcs_api_client
+from dcs_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = dcs_api_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = dcs_api_client.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = dcs_api_client.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
+id = 789 # int | id of the hook to update
+body = dcs_api_client.EditHookOption() # EditHookOption |  (optional)
+
+try:
+    # Update a hook
+    api_response = api_instance.user_edit_hook(id, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->user_edit_hook: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| id of the hook to update | 
+ **body** | [**EditHookOption**](EditHookOption.md)|  | [optional] 
+
+### Return type
+
+[**Hook**](Hook.md)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2804,6 +3058,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[UserHeatmapData]**](UserHeatmapData.md)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **user_get_hook**
+> Hook user_get_hook(id)
+
+Get a hook
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dcs_api_client
+from dcs_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = dcs_api_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = dcs_api_client.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = dcs_api_client.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
+id = 789 # int | id of the hook to get
+
+try:
+    # Get a hook
+    api_response = api_instance.user_get_hook(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->user_get_hook: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| id of the hook to get | 
+
+### Return type
+
+[**Hook**](Hook.md)
 
 ### Authorization
 
@@ -3148,6 +3483,95 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **user_list_activity_feeds**
+> list[Activity] user_list_activity_feeds(username, only_performed_by=only_performed_by, _date=_date, page=page, limit=limit)
+
+List a user's activity feeds
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dcs_api_client
+from dcs_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = dcs_api_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = dcs_api_client.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = dcs_api_client.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
+username = 'username_example' # str | username of user
+only_performed_by = true # bool | if true, only show actions performed by the requested user (optional)
+_date = '2013-10-20' # date | the date of the activities to be found (optional)
+page = 56 # int | page number of results to return (1-based) (optional)
+limit = 56 # int | page size of results (optional)
+
+try:
+    # List a user's activity feeds
+    api_response = api_instance.user_list_activity_feeds(username, only_performed_by=only_performed_by, _date=_date, page=page, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->user_list_activity_feeds: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| username of user | 
+ **only_performed_by** | **bool**| if true, only show actions performed by the requested user | [optional] 
+ **_date** | **date**| the date of the activities to be found | [optional] 
+ **page** | **int**| page number of results to return (1-based) | [optional] 
+ **limit** | **int**| page size of results | [optional] 
+
+### Return type
+
+[**list[Activity]**](Activity.md)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **user_list_emails**
 > list[Email] user_list_emails()
 
@@ -3468,6 +3892,89 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[GPGKey]**](GPGKey.md)
+
+### Authorization
+
+[AccessToken](../README.md#AccessToken), [AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken), [BasicAuth](../README.md#BasicAuth), [SudoHeader](../README.md#SudoHeader), [SudoParam](../README.md#SudoParam), [TOTPHeader](../README.md#TOTPHeader), [Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/plain
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **user_list_hooks**
+> list[Hook] user_list_hooks(page=page, limit=limit)
+
+List the authenticated user's webhooks
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dcs_api_client
+from dcs_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: AccessToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['access_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['access_token'] = 'Bearer'
+# Configure API key authorization: AuthorizationHeaderToken
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: BasicAuth
+configuration = dcs_api_client.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: SudoHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['Sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Sudo'] = 'Bearer'
+# Configure API key authorization: SudoParam
+configuration = dcs_api_client.Configuration()
+configuration.api_key['sudo'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['sudo'] = 'Bearer'
+# Configure API key authorization: TOTPHeader
+configuration = dcs_api_client.Configuration()
+configuration.api_key['X-GITEA-OTP'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GITEA-OTP'] = 'Bearer'
+# Configure API key authorization: Token
+configuration = dcs_api_client.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
+page = 56 # int | page number of results to return (1-based) (optional)
+limit = 56 # int | page size of results (optional)
+
+try:
+    # List the authenticated user's webhooks
+    api_response = api_instance.user_list_hooks(page=page, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->user_list_hooks: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| page number of results to return (1-based) | [optional] 
+ **limit** | **int**| page size of results | [optional] 
+
+### Return type
+
+[**list[Hook]**](Hook.md)
 
 ### Authorization
 
@@ -3906,7 +4413,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_search**
-> object user_search(q=q, uid=uid, lang=lang, page=page, limit=limit)
+> InlineResponse2001 user_search(q=q, uid=uid, lang=lang, subject=subject, metadata_type=metadata_type, page=page, limit=limit)
 
 Search for users
 
@@ -3958,12 +4465,14 @@ api_instance = dcs_api_client.UserApi(dcs_api_client.ApiClient(configuration))
 q = 'q_example' # str | keyword (optional)
 uid = 789 # int | ID of the user to search for (optional)
 lang = 'lang_example' # str | If the user has one or more repos with the given language(s), the org will be in the results. Multiple lang's are ORed. (optional)
+subject = 'subject_example' # str | If the user has one or more repos with the given subject(s), the org will be in the results. Multiple subjects are ORed. (optional)
+metadata_type = 'metadata_type_example' # str | If the user has one or more repos with the given metadata type(s), the org will be in the results. Multiple metadata types are ORed. (optional)
 page = 56 # int | page number of results to return (1-based) (optional)
 limit = 56 # int | page size of results (optional)
 
 try:
     # Search for users
-    api_response = api_instance.user_search(q=q, uid=uid, lang=lang, page=page, limit=limit)
+    api_response = api_instance.user_search(q=q, uid=uid, lang=lang, subject=subject, metadata_type=metadata_type, page=page, limit=limit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->user_search: %s\n" % e)
@@ -3976,12 +4485,14 @@ Name | Type | Description  | Notes
  **q** | **str**| keyword | [optional] 
  **uid** | **int**| ID of the user to search for | [optional] 
  **lang** | **str**| If the user has one or more repos with the given language(s), the org will be in the results. Multiple lang&#39;s are ORed. | [optional] 
+ **subject** | **str**| If the user has one or more repos with the given subject(s), the org will be in the results. Multiple subjects are ORed. | [optional] 
+ **metadata_type** | **str**| If the user has one or more repos with the given metadata type(s), the org will be in the results. Multiple metadata types are ORed. | [optional] 
  **page** | **int**| page number of results to return (1-based) | [optional] 
  **limit** | **int**| page size of results | [optional] 
 
 ### Return type
 
-**object**
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

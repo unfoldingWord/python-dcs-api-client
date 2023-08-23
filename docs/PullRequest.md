@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allow_maintainer_edit** | **bool** |  | [optional] 
 **assignee** | [**User**](User.md) |  | [optional] 
 **assignees** | [**list[User]**](User.md) |  | [optional] 
 **base** | [**PRBranchInfo**](PRBranchInfo.md) |  | [optional] 
@@ -26,6 +27,8 @@ Name | Type | Description | Notes
 **milestone** | [**Milestone**](Milestone.md) |  | [optional] 
 **number** | **int** |  | [optional] 
 **patch_url** | **str** |  | [optional] 
+**pin_order** | **int** |  | [optional] 
+**requested_reviewers** | [**list[User]**](User.md) |  | [optional] 
 **state** | [**StateType**](StateType.md) |  | [optional] 
 **title** | **str** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
